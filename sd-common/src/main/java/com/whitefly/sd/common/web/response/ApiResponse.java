@@ -1,4 +1,4 @@
-package com.whitefly.common.web.response;
+package com.whitefly.sd.common.web.response;
 
 public class ApiResponse<T> extends BaseResponse {
 

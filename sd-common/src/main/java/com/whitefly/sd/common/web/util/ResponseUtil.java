@@ -1,6 +1,6 @@
-package com.whitefly.common.web.util;
+package com.whitefly.sd.common.web.util;
 
-import com.whitefly.common.web.response.ApiResponse;
+import com.whitefly.sd.common.web.response.ApiResponse;
 
 public class ResponseUtil {
 
