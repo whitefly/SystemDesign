@@ -2,13 +2,13 @@ package com.whitefly.sd.common.web.response;
 
 public class ApiResponse<T> extends BaseResponse {
 
-    T obj;
+    T data;
 
-    public T getObj() {
-        return obj;
+    public T getData() {
+        return data;
     }
 
-    public void setObj(T obj) {
-        this.obj = obj;
+    public void setData(T data) {
+        this.data = data;
     }
 }

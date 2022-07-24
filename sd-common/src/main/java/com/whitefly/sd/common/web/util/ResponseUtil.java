@@ -6,7 +6,7 @@ public class ResponseUtil {
 
     public static <T> ApiResponse<T> packSuccess(T t) {
         ApiResponse<T> response = new ApiResponse<>();
-        response.setObj(t);
+        response.setData(t);
         response.setCode(0);
         response.setSuccess(Boolean.TRUE);
         return response;

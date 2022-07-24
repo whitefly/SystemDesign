@@ -16,21 +16,21 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/system_design"
+                        connectionURL="jdbc:mysql://localhost:3306/self_system_design"
                         userId="root" password="">
         </jdbcConnection>
 
 
 
-        <javaModelGenerator targetPackage="com.alibaba.usergrowth.ags.dal.dataobject.portrait"
+        <javaModelGenerator targetPackage="com.whitefly.sd.dal.dataobject.demo"
                             targetProject="src/main/java">
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mybatis"
+        <sqlMapGenerator targetPackage="mybatis.demo"
                          targetProject="src/main/resources"/>
 
-        <javaClientGenerator targetPackage="com.alibaba.usergrowth.ags.dal.mapper.portrait"
+        <javaClientGenerator targetPackage="com.whitefly.sd.dal.mapper.demo"
                              targetProject="src/main/java" type="XMLMAPPER"/>
 
 
@@ -42,8 +42,8 @@
         <!--               enableUpdateByExample="false"-->
         <!--        ></table>-->
 
-        <table schema="singularity" tableName="portrait_tag_group"
-               domainObjectName="TagGroup"
+        <table schema="self_system_design" tableName="sd_demo_user"
+               domainObjectName="DemoUserDO"
                enableCountByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
