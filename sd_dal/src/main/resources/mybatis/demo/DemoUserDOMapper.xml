@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whitefly.sd.dal.mapper.demo.DemoUserDOMapper">
+    <resultMap id="BaseResultMap" type="com.whitefly.sd.dal.dataobject.demo.DemoUserDO">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="hobby" jdbcType="VARCHAR" property="hobby"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="mobile_phone" jdbcType="BIGINT" property="mobilePhone"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , name, hobby, email, mobile_phone
+    </sql>
+
+    <sql id="Common_Query">
+        <where>
+            <if test="name != null">
+                name like concat('%', #{name,jdbcType=VARCHAR},'%'),
+            </if>
+            <if test="hobby != null">
+                hobby = #{hobby,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="mobilePhone != null">
+                mobile_phone = #{mobilePhone,jdbcType=BIGINT},
+            </if>
+        </where>
+    </sql>
+
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sd_demo_user
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="query" parameterType="com.whitefly.sd.dal.dataobject.demo.DemoUserDO"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sd_demo_user
+        <include refid="Common_Query"/>
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from sd_demo_user
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.whitefly.sd.dal.dataobject.demo.DemoUserDO" useGeneratedKeys="true">
+        insert into sd_demo_user (id, name, hobby,
+                                  email, mobile_phone)
+        values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{hobby,jdbcType=VARCHAR},
+                #{email,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=BIGINT})
+    </insert>
+    <insert id="insertSelective" parameterType="com.whitefly.sd.dal.dataobject.demo.DemoUserDO">
+        insert into sd_demo_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="hobby != null">
+                hobby,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="mobilePhone != null">
+                mobile_phone,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="hobby != null">
+                #{hobby,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="mobilePhone != null">
+                #{mobilePhone,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.whitefly.sd.dal.dataobject.demo.DemoUserDO">
+        update sd_demo_user
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="hobby != null">
+                hobby = #{hobby,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="mobilePhone != null">
+                mobile_phone = #{mobilePhone,jdbcType=BIGINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.whitefly.sd.dal.dataobject.demo.DemoUserDO">
+        update sd_demo_user
+        set name         = #{name,jdbcType=VARCHAR},
+            hobby        = #{hobby,jdbcType=VARCHAR},
+            email        = #{email,jdbcType=VARCHAR},
+            mobile_phone = #{mobilePhone,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>
