@@ -38,7 +38,7 @@
         where id = #{id,jdbcType=BIGINT}
     </select>
 
-    <select id="query" parameterType="com.whitefly.sd.dal.dataobject.demo.DemoUserDO"  resultMap="BaseResultMap">
+    <select id="query" parameterType="com.whitefly.sd.dal.dataobject.demo.DemoUserDO" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from sd_demo_user
@@ -51,7 +51,7 @@
         from sd_demo_user
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" parameterType="com.whitefly.sd.dal.dataobject.demo.DemoUserDO" useGeneratedKeys="true">
+    <insert id="insert" parameterType="com.whitefly.sd.dal.dataobject.demo.DemoUserDO" useGeneratedKeys="true" keyProperty="id">
         insert into sd_demo_user (id, name, hobby,
                                   email, mobile_phone)
         values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{hobby,jdbcType=VARCHAR},

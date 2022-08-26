@@ -23,6 +23,7 @@ public class MybatisConfig {
 
     @Bean(name = "sdDataSource")
     public DriverManagerDataSource sdDataSource() {
+        //设置数据源
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/self_system_design?createDatabaseIfNotExist=true&useSSL=false");
@@ -35,11 +36,14 @@ public class MybatisConfig {
     @Bean(name = "sdSqlSessionFactory")
     public SqlSessionFactory sdSqlSessionFactory(@Qualifier("sdDataSource") DataSource dataSource,
                                                  @Value("classpath:mybatis-config.xml") Resource sdMybatisConfigLocation) throws Exception {
+        //采用mybatis来管理会话
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setConfigLocation(sdMybatisConfigLocation);
         sqlSessionFactoryBean.setDataSource(dataSource);
         return sqlSessionFactoryBean.getObject();
     }
+
+
 
     @Bean
     public MapperScannerConfigurer sdScannerConfigurer() {

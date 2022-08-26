@@ -1,9 +1,11 @@
 package com.whitefly.sd.dal.mapper.demo;
 
 import com.whitefly.sd.dal.dataobject.demo.DemoUserDO;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
+@Mapper
 public interface DemoUserDOMapper {
     int deleteByPrimaryKey(Long id);
 

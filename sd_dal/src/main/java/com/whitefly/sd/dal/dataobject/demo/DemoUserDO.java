@@ -1,5 +1,7 @@
 package com.whitefly.sd.dal.dataobject.demo;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 public class DemoUserDO implements Serializable {
@@ -13,7 +15,6 @@ public class DemoUserDO implements Serializable {
 
     private Long mobilePhone;
 
-    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;
@@ -53,5 +54,16 @@ public class DemoUserDO implements Serializable {
 
     public void setMobilePhone(Long mobilePhone) {
         this.mobilePhone = mobilePhone;
+    }
+
+    @Override
+    public String toString() {
+        return "DemoUserDO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", hobby='" + hobby + '\'' +
+                ", email='" + email + '\'' +
+                ", mobilePhone=" + mobilePhone +
+                '}';
     }
 }

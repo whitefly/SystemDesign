@@ -18,6 +18,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.whitefly</groupId>
+            <artifactId>sd-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.2.2</version>

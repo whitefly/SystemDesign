@@ -42,4 +42,9 @@ public class HelloController {
         return ResponseUtil.packSuccess(personService.userList());
     }
 
+    @GetMapping(value = "/user/test")
+    public ApiResponse<List<DemoUserDO>> test() {
+        return ResponseUtil.packSuccess(personService.randomAdd());
+    }
+
 }
