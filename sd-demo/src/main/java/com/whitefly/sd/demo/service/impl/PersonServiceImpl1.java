@@ -22,4 +22,9 @@ public class PersonServiceImpl1 implements PersonService {
     public List<DemoUserDO> randomAdd() {
         return null;
     }
+
+    @Override
+    public void handle() {
+        return;
+    }
 }

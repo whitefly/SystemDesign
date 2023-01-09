@@ -11,4 +11,6 @@ public interface PersonService {
     List<DemoUserDO> userList();
 
     List<DemoUserDO> randomAdd();
+
+    void handle();
 }
